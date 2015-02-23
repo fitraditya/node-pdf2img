@@ -1,0 +1,35 @@
+{
+  "name": "pdf2img",
+  "version": "0.1.0",
+  "description": "A nodejs module for converting pdf into image",
+  "author": "Fitra Aditya <fitra@g.pl>",
+  "license": "MIT",
+  "homepage": "https://github.com/fitraditya/node-pdf2img",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MidEndProject/node-pdf2img.git"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "gm": "^1.17.0",
+    "mkdirp": "^0.5.0",
+    "pdfinfo": "0.0.3"
+  },
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "express": "^4.11.2",
+    "mocha": "^2.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/fitraditya/node-pdf2img/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "keywords": [
+    "pdf to image",
+    "pdf to jpg",
+    "pdf to png"
+  ]
+}
