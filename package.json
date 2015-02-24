@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "chai": "^2.0.0",
-    "express": "^4.11.2",
     "mocha": "^2.1.0"
   },
   "bugs": {
