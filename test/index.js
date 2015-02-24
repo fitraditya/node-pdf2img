@@ -8,7 +8,7 @@ pdf2img.setOptions({ outputdir: __dirname + '/output' });
 
 describe('Split and covert pdf into images', function() {
   it ('Create png files', function(done) {
-    this.timeout(30000);
+    this.timeout(60000);
     pdf2img.convert(input, function(info) {
       n = 1;
       info.forEach(function(file) {
