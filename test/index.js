@@ -1,6 +1,8 @@
+"use strict";
+
 var fs      = require('fs');
 var should  = require('chai').should();
-var pdf2img = require('../');
+var pdf2img = require('../index.js');
 
 var input   = __dirname + '/test.pdf';
 
