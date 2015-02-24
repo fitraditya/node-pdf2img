@@ -1,6 +1,6 @@
 {
   "name": "pdf2img",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A nodejs module for converting pdf into image",
   "author": "Fitra Aditya <fitra@g.pl>",
   "license": "MIT",
