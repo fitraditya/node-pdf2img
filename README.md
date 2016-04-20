@@ -19,11 +19,13 @@ pdf2img.setOptions({
   type: 'png',                      // png or jpeg, default png
   size: 1024,                       // default 1024
   density: 600,                     // default 600
-  outputdir: __dirname + '/output'  // mandatory, outputdir must be absolute path
+  outputdir: __dirname + '/output', // mandatory, outputdir must be absolute path
+  targetname: 'test_'               // the prefix for the generated files, optional
 });
 
-pdf2img.convert(input, function(info) {
-  console.log(info);
+pdf2img.convert(input, function(err, info) {
+  if (err) console.log(err)
+  else console.log(info);
 });
 ```
 
