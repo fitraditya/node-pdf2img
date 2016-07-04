@@ -7,7 +7,7 @@
   "homepage": "https://github.com/fitraditya/node-pdf2img",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MidEndProject/node-pdf2img.git"
+    "url": "https://github.com/fitraditya/node-pdf2img.git"
   },
   "dependencies": {
     "async": "^0.9.0",
