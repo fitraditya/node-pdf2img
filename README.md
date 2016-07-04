@@ -20,7 +20,7 @@ pdf2img.setOptions({
   size: 1024,                       // default 1024
   density: 600,                     // default 600
   outputdir: __dirname + '/output', // mandatory, outputdir must be absolute path
-  targetname: 'test_'               // the prefix for the generated files, optional
+  targetname: 'test'                // the prefix for the generated files, optional
 });
 
 pdf2img.convert(input, function(err, info) {
@@ -46,7 +46,6 @@ It will return array of splitted and converted image files.
 Note that pdf2img will split and convert all pages.
 
 ## To Do
-* Output file name option
 * Convert selected pages
 
 ## Maintainer
