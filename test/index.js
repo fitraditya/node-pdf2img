@@ -6,7 +6,10 @@ var pdf2img = require('../index.js');
 
 var input   = __dirname + '/test.pdf';
 
-pdf2img.setOptions({ outputdir: __dirname + '/output' });
+pdf2img.setOptions({
+  outputdir: __dirname + '/output',
+  targetname: 'test'
+});
 
 describe('Split and covert pdf into images', function() {
   it ('Create png files', function(done) {
