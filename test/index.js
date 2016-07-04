@@ -10,10 +10,11 @@ pdf2img.setOptions({ outputdir: __dirname + '/output' });
 
 describe('Split and covert pdf into images', function() {
   it ('Create png files', function(done) {
-    this.timeout(60000);
+    this.timeout(100000);
     console.log(input);
-    pdf2img.convert(input, function(info) {
+    pdf2img.convert(input, function(err, info) {
       var n = 1;
+      console.log(info);
       info.forEach(function(file) {
         file.page.should.equal(n);
         file.name.should.equal('test_' + n + '.png');
@@ -26,7 +27,7 @@ describe('Split and covert pdf into images', function() {
     this.timeout(60000);
     console.log(input);
     pdf2img.setOptions({ type: 'jpg' });
-    pdf2img.convert(input, function(info) {
+    pdf2img.convert(input, function(err, info) {
       var n = 1;
       info.forEach(function(file) {
         file.page.should.equal(n);
