@@ -37,4 +37,30 @@ describe('Split and covert pdf into images', function() {
       });
     });
   });
+  it ('Create jpg files once page at time', function(done) {
+    this.timeout(100000);
+    pdf2img.setOptions({ type: 'jpg', maxPagesAtTime: 1 });
+    pdf2img.convert(input, function(err, info) {
+      var n = 1;
+      info.forEach(function(file) {
+        file.page.should.equal(n);
+        file.name.should.equal('test_' + n + '.jpg');
+        if (n === 3) done();
+        n++;
+      });
+    });
+  });
+  it ('Create jpg files once page at time', function(done) {
+    this.timeout(100000);
+    pdf2img.setOptions({ type: 'jpg', maxPagesAtTime: 1 });
+    pdf2img.convert(input, function(err, info) {
+      var n = 1;
+      info.forEach(function(file) {
+        file.page.should.equal(n);
+        file.name.should.equal('test_' + n + '.jpg');
+        if (n === 3) done();
+        n++;
+      });
+    });
+  });
 });
