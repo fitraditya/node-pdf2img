@@ -11,28 +11,28 @@ pdf2img.setOptions({
   targetname: 'test'
 });
 
-describe('Split and covert pdf into images', function() {
+describe('Split and convert pdf into images', function() {
   it ('Create png files', function(done) {
-    this.timeout(100000);
+    this.timeout(10000);
     pdf2img.convert(input, function(err, info) {
       var n = 1;
       info.forEach(function(file) {
-        file.page.should.equal(n);
+        file.page.should.equal(n+'');
         file.name.should.equal('test_' + n + '.png');
-        if (n === 3) done();
+        if (n == 3) done();
         n++;
       });
     });
   });
   it ('Create jpg files', function(done) {
-    this.timeout(100000);
+    this.timeout(10000);
     pdf2img.setOptions({ type: 'jpg' });
     pdf2img.convert(input, function(err, info) {
       var n = 1;
       info.forEach(function(file) {
-        file.page.should.equal(n);
+        file.page.should.equal(n+'');
         file.name.should.equal('test_' + n + '.jpg');
-        if (n === 3) done();
+        if (n == 3) done();
         n++;
       });
     });
