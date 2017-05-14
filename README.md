@@ -3,7 +3,6 @@
 A nodejs module for converting pdf into image file
 
 ## Dependencies
-- ImageMagick
 - GraphicsMagick
 
 **Note: Currently it only works on Linux.**
