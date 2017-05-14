@@ -11,16 +11,17 @@ A nodejs module for converting pdf into image file
 
 ```javascript
 var fs      = require('fs');
+var path    = require('path');
 var pdf2img = require('pdf2img');
 
-var input   = __dirname + '/sweetdocument.pdf';
+var input   = __dirname + '/test.pdf';
 
 pdf2img.setOptions({
-  type: 'png',                      // png or jpeg, default png
-  size: 1024,                       // default 1024
-  density: 600,                     // default 600
-  outputdir: __dirname + '/output', // mandatory, outputdir must be absolute path
-  targetname: 'test'                // the prefix for the generated files, optional
+  type: 'png',                                // png or jpg, default jpg
+  size: 1024,                                 // default 1024
+  density: 600,                               // default 600
+  outputdir: __dirname + path.sep + 'output', // output folder, default null (if null given, then it will create folder name same as file name)
+  outputname: 'test'                          // output file name, dafault null (if null given, then it will create image name same as input name)
 });
 
 pdf2img.convert(input, function(err, info) {
@@ -32,15 +33,20 @@ pdf2img.convert(input, function(err, info) {
 It will return array of splitted and converted image files.
 
 ```javascript
-[ { page: 1,
-    name: 'test_1.png',
-    path: '/path-to-your-project/output/test_1.png' },
-  { page: 2,
-    name: 'test_2.png',
-    path: '/path-to-your-project/output/test_2.png' },
-  { page: 3,
-    name: 'test_3.png',
-    path: '/path-to-your-project/output/test_3.png' } ]
+{ result: 'success',
+  message: 
+   [ { page: 1,
+       name: 'test_1.jpg',
+       size: 17.275,
+       path: '/output/test_1.jpg' },
+     { page: 2,
+       name: 'test_2.jpg',
+       size: 24.518,
+       path: '/output/test_2.jpg' },
+     { page: 3,
+       name: 'test_3.jpg',
+       size: 24.055,
+       path: '/output/test_3.jpg' } ] }
 ```
 
 Note that pdf2img will split and convert all pages.
