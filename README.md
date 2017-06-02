@@ -19,14 +19,15 @@ var fs      = require('fs');
 var path    = require('path');
 var pdf2img = require('pdf2img');
 
-var input   = __dirname + '/test.pdf';
+var input   = __dirname + path.sep + 'test.pdf';
 
 pdf2img.setOptions({
   type: 'png',                                // png or jpg, default jpg
   size: 1024,                                 // default 1024
   density: 600,                               // default 600
   outputdir: __dirname + path.sep + 'output', // output folder, default null (if null given, then it will create folder name same as file name)
-  outputname: 'test'                          // output file name, dafault null (if null given, then it will create image name same as input name)
+  outputname: 'test',                          // output file name, dafault null (if null given, then it will create image name same as input name)
+  page: 1                                      // (optional) convert only given page (1-indexed).
 });
 
 pdf2img.convert(input, function(err, info) {
