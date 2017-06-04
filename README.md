@@ -26,7 +26,8 @@ pdf2img.setOptions({
   size: 1024,                                 // default 1024
   density: 600,                               // default 600
   outputdir: __dirname + path.sep + 'output', // output folder, default null (if null given, then it will create folder name same as file name)
-  outputname: 'test'                          // output file name, dafault null (if null given, then it will create image name same as input name)
+  outputname: 'test',                         // output file name, dafault null (if null given, then it will create image name same as input name)
+  page: null                                  // convert selected page, default null (if null given, then it will convert all pages)
 });
 
 pdf2img.convert(input, function(err, info) {
@@ -53,11 +54,6 @@ It will return array of splitted and converted image files.
        size: 24.055,
        path: '/output/test_3.jpg' } ] }
 ```
-
-Note that pdf2img will split and convert all pages.
-
-## To Do
-* Convert selected pages
 
 ## Maintainer
 [Fitra Aditya][0]
