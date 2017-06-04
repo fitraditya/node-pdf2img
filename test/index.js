@@ -53,7 +53,24 @@ describe('Split and convert pdf into images', function() {
   });
   it ('Create jpg file only for given page', function(done) {
     this.timeout(100000);
-    pdf2img.setOptions({ type: 'jpg', page: 2 });
+    pdf2img.setOptions({ type: 'jpg', page: 1 });
+    pdf2img.convert(input, function(err, info) {
+      if (info.result !== 'success') {
+        info.result.should.equal('success');
+        done();
+      } else {
+        info.message.length.should.equal(1)
+        var file = info.message[0];
+        file.page.should.equal(1);
+        file.name.should.equal('test_1.jpg');
+        isFileExists(file.path).should.to.be.true;
+        done();
+      }
+    });
+  });
+  it ('Create png file only for given page', function(done) {
+    this.timeout(100000);
+    pdf2img.setOptions({ type: 'png', page: 2 });
     pdf2img.convert(input, function(err, info) {
       if (info.result !== 'success') {
         info.result.should.equal('success');
@@ -62,7 +79,7 @@ describe('Split and convert pdf into images', function() {
         info.message.length.should.equal(1)
         var file = info.message[0];
         file.page.should.equal(2);
-        file.name.should.equal('test_2.jpg');
+        file.name.should.equal('test_2.png');
         isFileExists(file.path).should.to.be.true;
         done();
       }
