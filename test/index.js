@@ -7,6 +7,7 @@ var should  = require('chai').should();
 var pdf2img = require('../index.js');
 
 var input   = __dirname + path.sep + 'test.pdf';
+var onePageInput = __dirname + path.sep + 'one_page.pdf';
 
 pdf2img.setOptions({
   outputdir: __dirname + path.sep + '/output',
@@ -60,6 +61,17 @@ describe('Split and convert pdf into images', function() {
     this.timeout(100000);
     pdf2img.setOptions({ type: 'png', page: 2 });
     convertFileAndAssertExists(input, 2, 'png', done);
+  });
+  it ('Create jpg file for one page pdf', function(done) {
+    this.timeout(100000);
+    // pdf2img options do not reset between tests.
+    pdf2img.setOptions({ type: 'jpg', page: null});
+    convertFileAndAssertExists(onePageInput, 1, 'jpg', done);
+  });
+  it ('Create jpg file for one page pdf when specifying', function(done) {
+    this.timeout(100000);
+    pdf2img.setOptions({ type: 'jpg', page: 1 });
+    convertFileAndAssertExists(onePageInput, 1, 'jpg', done);
   });
 });
 
