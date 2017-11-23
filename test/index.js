@@ -8,11 +8,6 @@ var pdf2img = require('../index.js');
 
 var input   = __dirname + path.sep + 'test.pdf';
 
-pdf2img.setOptions({
-  outputdir: __dirname + path.sep + '/output',
-  outputname: 'test'
-});
-
 describe('Split and convert pdf into images', function() {
   it ('Create jpg files', function(done) {
     this.timeout(100000);
@@ -83,6 +78,19 @@ describe('Split and convert pdf into images', function() {
         isFileExists(file.path).should.to.be.true;
         done();
       }
+    });
+  });
+  it ('Can pass quality to jpg files', function(done) {
+    this.timeout(100000);
+    pdf2img.setOptions({ type: 'jpg', page: 2 });
+    pdf2img.convert(input, function(err, info) {
+      var file1Info = info;
+      pdf2img.setOptions({ quality: 60 });
+      pdf2img.convert(input, function(err, info) {
+        var file2Info = info;
+        file1Info.message[0].size.should.gt(file2Info.message[0].size);
+        done();
+      });
     });
   });
 });
