@@ -26,8 +26,9 @@ pdf2img.setOptions({
   size: 1024,                                 // default 1024
   density: 600,                               // default 600
   outputdir: __dirname + path.sep + 'output', // output folder, default null (if null given, then it will create folder name same as file name)
-  outputname: 'test',                         // output file name, dafault null (if null given, then it will create image name same as input name)
-  page: null                                  // convert selected page, default null (if null given, then it will convert all pages)
+  outputname: 'test',                         // output file name, default null (if null given, then it will create image name same as input name)
+  page: null,                                 // convert selected page, default null (if null given, then it will convert all pages)
+  startindex: 1                               // index to start width, default 1 (if not present, will start at 0)
 });
 
 pdf2img.convert(input, function(err, info) {
